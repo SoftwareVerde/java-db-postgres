@@ -41,8 +41,8 @@ public class PostgresDatabase implements Database {
             resultSet.close();
             return Util.coalesce(insertId, "-1").toString();
         }
-        catch (final SQLException e) {
-            e.printStackTrace();
+        catch (final SQLException exception) {
+            exception.printStackTrace();
             return null;
         }
     }
@@ -58,8 +58,8 @@ public class PostgresDatabase implements Database {
             }
             return preparedStatement;
         }
-        catch (final SQLException e) {
-            e.printStackTrace();
+        catch (final SQLException exception) {
+            exception.printStackTrace();
             return null;
         }
     }
@@ -110,8 +110,8 @@ public class PostgresDatabase implements Database {
             try {
                 _connection.setCatalog(databaseName);
             }
-            catch (final SQLException e) {
-                e.printStackTrace();
+            catch (final SQLException exception) {
+                exception.printStackTrace();
             }
         }
     }
@@ -135,8 +135,8 @@ public class PostgresDatabase implements Database {
             statement.execute(query);
             statement.close();
         }
-        catch (final SQLException e) {
-            e.printStackTrace();
+        catch (final SQLException exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -212,4 +212,11 @@ public class PostgresDatabase implements Database {
     public void disconnect() {
         try { _connection.close(); } catch (final SQLException e) { }
     }
+
+    /**
+     * Require dependencies be packaged at compile-time.
+     */
+    private static final Class[] UNUSED = {
+        org.postgresql.Driver.class
+    };
 }
