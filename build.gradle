@@ -1,5 +1,5 @@
 group 'com.softwareverde'
-version '0.1.1'
+version '0.1.2'
 
 apply plugin: 'java'
 
@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.github.softwareverde', name: 'java-db', version: 'v+'
+    compile group: 'com.github.softwareverde', name: 'java-db', version: 'v1.+'
     compile group: 'com.github.softwareverde', name: 'java-util', version: 'v+'
     compile group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
 
